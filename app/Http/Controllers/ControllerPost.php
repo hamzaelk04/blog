@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
 
 class ControllerPost extends Controller
 {
@@ -27,7 +28,15 @@ class ControllerPost extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validate = $request->validate([
+            'titre' => 'required',
+            'contenu' => 'required',
+            'category_id' => 'required'
+        ]);
+        Post::create($validate);
+
+        return redirect()->back()->with('success', 'Post created!');
+        // header('location: ../../resources/views/index.blade.php');
     }
 
     /**

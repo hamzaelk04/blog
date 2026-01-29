@@ -96,12 +96,13 @@
         <!-- Form Card -->
         <div
             class="bg-white dark:bg-[#1c2a38] rounded-xl shadow-sm border border-[#dbe0e6] dark:border-[#2a343f] overflow-hidden">
-            <form class="flex flex-col">
+            <form class="flex flex-col" method="post" action="{{ route('posts.store') }}">
+                @csrf
                 <!-- Blog Title Section -->
                 <div class="p-6 md:p-8 border-b border-[#f0f2f4] dark:border-[#2a343f]">
                     <h3 class="text-[#111418] dark:text-white text-xl font-bold leading-tight mb-4 font-display">Blog
                         Title</h3>
-                    <input
+                    <input name="titre"
                         class="w-full border border-[#dbe0e6] dark:border-[#3a4a5a] bg-white dark:bg-background-dark rounded-lg h-16 px-6 text-2xl font-semibold font-display placeholder:text-[#617589] dark:placeholder:text-[#617589]/50 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none"
                         placeholder="Enter an engaging title..." type="text" />
                 </div>
@@ -110,14 +111,14 @@
                     <h3 class="text-[#111418] dark:text-white text-xl font-bold leading-tight mb-4 font-display">
                         Category</h3>
                     <div class="max-w-md">
-                        <select
+                        <select name="category_id"
                             class="w-full border border-[#dbe0e6] dark:border-[#3a4a5a] bg-white dark:bg-background-dark rounded-lg h-12 px-4 text-base focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none">
                             <option disabled="" selected="" value="">Select a category</option>
-                            <option value="technology">Technology</option>
-                            <option value="lifestyle">Lifestyle</option>
-                            <option value="travel">Travel</option>
-                            <option value="finance">Finance</option>
-                            <option value="health">Health</option>
+                            <option value="1">Technology</option>
+                            <option value="2">Lifestyle</option>
+                            <option value="3">Travel</option>
+                            <option value="4">Finance</option>
+                            <option value="5">Health</option>
                         </select>
                     </div>
                 </div>
@@ -152,7 +153,7 @@
                             type="button"><span class="material-symbols-outlined">format_quote</span></button>
                     </div>
                     <!-- Textarea -->
-                    <textarea
+                    <textarea name="contenu"
                         class="w-full border border-[#dbe0e6] dark:border-[#3a4a5a] bg-white dark:bg-background-dark rounded-b-lg p-6 min-h-[400px] text-lg font-display leading-relaxed placeholder:text-[#617589] focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none resize-none"
                         placeholder="Write your story here..."></textarea>
                 </div>

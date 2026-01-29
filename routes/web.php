@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\ControllerPost;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -18,3 +20,9 @@ Route::get('/blog', function() {
 Route::get('/create', function() {
     return view('create');
 });
+
+// Route::post('/create', function() {
+//     return 'hello hamza';
+// })->name('posts.store');
+
+Route::post('/create', [ControllerPost::class, 'store'])->name('posts.store');
